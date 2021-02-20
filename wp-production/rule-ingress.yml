@@ -1,8 +1,8 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: pesbuk-ingress
-  namespace: pesbuk-production
+  name: wp-ingress
+  namespace: wordpress-production
   annotations:
     ## Untuk menaikan batas upload file
     nginx.org/client-max-body-size: "10m"
@@ -10,10 +10,10 @@ metadata:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
   rules:
-  - host: pd-pesbuk.hegiwibowo.xyz
+  - host: blog.hegiwibowo.xyz
     http:
       paths:
       #- path: /belajar
       - backend:
-          serviceName: pesbuk
+          serviceName: wordpress
           servicePort: 80
